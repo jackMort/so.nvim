@@ -5,9 +5,12 @@ local M = {}
 M.config = {
   -- default config
   prompt = " ",
-  term = {
+  terminal = {
     direction = "float",
-    cmd = "so ",
+    cmd = "so",
+    float_opts = {
+      border = "curved",
+    },
     -- function to run on opening the terminal
     on_open = function(term)
       vim.cmd("startinsert!")
@@ -17,7 +20,7 @@ M.config = {
     on_close = function(term)
       vim.cmd("startinsert!")
     end,
-  }
+  },
 }
 
 -- setup is the public method to setup your plugin
