@@ -1,5 +1,5 @@
 -- main module file
-local module = require("plugin_name.module")
+local module = require("so.module")
 
 local M = {}
 M.config = {
@@ -14,9 +14,9 @@ M.setup = function(args)
   M.config = vim.tbl_deep_extend("force", M.config, args or {})
 end
 
--- "hello" is a public method for the plugin
-M.hello = function()
-  module.my_first_function()
+-- "query" is a public method for the plugin
+M.query = function()
+  module.so_query()
 end
 
 return M
