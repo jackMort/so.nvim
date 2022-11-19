@@ -6,8 +6,18 @@ M.config = {
   -- default config
   prompt = " ",
   term = {
-    direction = "float"
-  },
+    direction = "float",
+    cmd = "so ",
+    -- function to run on opening the terminal
+    on_open = function(term)
+      vim.cmd("startinsert!")
+      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+    end,
+    -- function to run on closing the terminal
+    on_close = function(term)
+      vim.cmd("startinsert!")
+    end,
+  }
 }
 
 -- setup is the public method to setup your plugin
