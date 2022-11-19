@@ -4,7 +4,10 @@ local module = require("so.module")
 local M = {}
 M.config = {
   -- default config
-  opt = "Hello!",
+  prompt = " ",
+  term = {
+    direction = "float"
+  },
 }
 
 -- setup is the public method to setup your plugin
@@ -16,7 +19,7 @@ end
 
 -- "query" is a public method for the plugin
 M.query = function()
-  module.so_query()
+  module.so_query(M.config)
 end
 
 return M

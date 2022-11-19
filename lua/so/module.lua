@@ -2,13 +2,13 @@
 local Terminal = require('toggleterm.terminal').Terminal
 local M = {}
 
-M.so_query = function()
+M.so_query = function(config)
   vim.ui.input({
-    prompt = " ",
+    prompt = config.prompt
   }, function(input)
     if input then
       local so = Terminal:new({ cmd = "so " .. input,
-        direction = "horizontal",
+        direction = config.term.direction,
         -- function to run on opening the terminal
         on_open = function(term)
           vim.cmd("startinsert!")
