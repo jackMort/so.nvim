@@ -35,4 +35,8 @@ M.query = function()
   module.so_query(M.config)
 end
 
+M.query_selection = function()
+  module.so_query_selection(M.config)
+end
+
 return M
